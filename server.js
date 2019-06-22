@@ -3,15 +3,16 @@ const app = express();
 
 app.use( express.static(__dirname + '/public' ));
 
-//
-// app.get('/', (req, res) => {
-//     let salida = {
-//         nombre: 'Thiago',
-//         edad: 35,
-//         url: req.url
-//     };
-//     res.send(salida);
-// });
+// Express HBS engine
+app.set('view engine', 'hbs');
+
+
+app.get('/', (req, res) => {
+    res.render('home', {
+        nombre: 'Thiago Bianeck',
+        anio: new Date().getFullYear()
+    });
+});
 
 
 app.listen(3000, () => {
